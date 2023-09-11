@@ -1,6 +1,6 @@
 @extends('backend.layout.master')
 @section('title')
-    Blog - Index
+    Feature Game - Index
 @endsection
 @section('content')
 
@@ -8,12 +8,12 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6 offset-3">
-            <h1>Logo</h1>
+            <h1>Feature Game</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Logo</li>
+              <li class="breadcrumb-item active">Feature Game</li>
             </ol>
           </div>
         </div>
@@ -27,12 +27,12 @@
           <!-- left column -->
              <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Logo</h3>
-                @if ($logoCount < 1)
+                <h3 class="card-title">Feature Game ({{$featuregameCount}})</h3>
+           
               
-                <a href="{{route('logo.create')}}" class="float-right btn btn-outline-dark btn-sm mb-2"><i class="fas fa-plus-square"></i></a>
+                <a href="{{route('featuregame.create')}}" class="float-right btn btn-outline-dark btn-sm mb-2"><i class="fas fa-plus-square"></i></a>
                       
-                @endif
+            
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -42,7 +42,9 @@
                   <tr>
                     <th>#</th>
                     <th>Logo</th>
-                  
+                    <th>Title</th>
+                    <th>Sub title</th>
+                    <th>Youtube Link</th>
                     <th>Action</th>
                    
                   </tr>
@@ -53,28 +55,32 @@
                    
                             
                    
-                   
+                   @foreach ($featuregame as $key=>$item)
+                       
+                  
                   <tr>
-                    <td>#1</td>
-                    <td> <img src="{{(!empty($logo->logo))?URL::to('storage/'.$logo->logo):URL::to('image/no_image.png')}}" alt="" style="max-width:250px"></td>
-                 
+                    <td>{{++$key}}</td>
+                    <td> <img src="{{(!empty($item->logo))?URL::to('storage/'.$item->logo):URL::to('image/no_image.png')}}" alt="" style="max-width:200px; max-height:150px"></td>
+                 <td>{{$item->title}}</td>
+                 <td>{!!$item->subtitle!!}</td>
+                 <td>{{@$item->link}}</td>
                    <td>
-                   @if ($logoCount > 0)
+                
                
-                      <a href="{{route('logo.edit',[$logo])}}"><button class="btn btn-outline-info btn-sm"><i class="fas fa-pen-square"></i></button></a>
+                      <a href="{{route('featuregame.edit',[$item])}}"><button class="btn btn-outline-info btn-sm"><i class="fas fa-pen-square"></i></button></a>
                     
-                      <form action="{{route('logo.destroy',[$logo])}}" method="POST">
+                      <form action="{{route('featuregame.destroy',[$item])}}" method="POST">
                         @method('DELETE')
                         @csrf
                         <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button>
                     </form>
                          
                          
-                    @endif
+                  
                     </td>
                    
                   </tr>
-                
+                  @endforeach
     
 
                   </tbody>
@@ -82,7 +88,9 @@
                   <tr>
                     <th>#</th>
                     <th>Logo</th>
-               
+                    <th>Title</th>
+                    <th>Sub title</th>
+                    <th>Youtube Link</th>
                     <th>Action</th>
                   
                   </tr>

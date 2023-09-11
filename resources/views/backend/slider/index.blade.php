@@ -8,12 +8,12 @@
       <div class="container">
         <div class="row mb-2">
           <div class="col-sm-6 offset-3">
-            <h1>Logo</h1>
+            <h1>Slider</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Logo</li>
+              <li class="breadcrumb-item active">Slider</li>
             </ol>
           </div>
         </div>
@@ -27,10 +27,10 @@
           <!-- left column -->
              <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Logo</h3>
-                @if ($logoCount < 1)
+                <h3 class="card-title">Slider</h3>
+                @if ($sliderCount < 1)
               
-                <a href="{{route('logo.create')}}" class="float-right btn btn-outline-dark btn-sm mb-2"><i class="fas fa-plus-square"></i></a>
+                <a href="{{route('slider.create')}}" class="float-right btn btn-outline-dark btn-sm mb-2"><i class="fas fa-plus-square"></i></a>
                       
                 @endif
               </div>
@@ -42,7 +42,9 @@
                   <tr>
                     <th>#</th>
                     <th>Logo</th>
-                  
+                    <th>Title</th>
+                    <th>Sub Title</th>
+                    <th>Youtube Link</th>
                     <th>Action</th>
                    
                   </tr>
@@ -56,14 +58,16 @@
                    
                   <tr>
                     <td>#1</td>
-                    <td> <img src="{{(!empty($logo->logo))?URL::to('storage/'.$logo->logo):URL::to('image/no_image.png')}}" alt="" style="max-width:250px"></td>
-                 
+                    <td> <img src="{{(!empty($slider->logo))?URL::to('storage/'.$slider->logo):URL::to('image/no_image.png')}}" alt="" style="max-width:250px"></td>
+                 <td>{{@$slider->title}}</td>
+                 <td>{{@$slider->subtitle}}</td>
+                 <td><iframe width="300" height="250" src="https://www.youtube.com/embed/{{ @$slider->link }}" frameborder="0" allowfullscreen></iframe></td>
                    <td>
-                   @if ($logoCount > 0)
+                   @if ($sliderCount > 0)
                
-                      <a href="{{route('logo.edit',[$logo])}}"><button class="btn btn-outline-info btn-sm"><i class="fas fa-pen-square"></i></button></a>
+                      <a href="{{route('slider.edit',[$slider])}}"><button class="btn btn-outline-info btn-sm"><i class="fas fa-pen-square"></i></button></a>
                     
-                      <form action="{{route('logo.destroy',[$logo])}}" method="POST">
+                      <form action="{{route('slider.destroy',[$slider])}}" method="POST">
                         @method('DELETE')
                         @csrf
                         <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button>
@@ -82,7 +86,9 @@
                   <tr>
                     <th>#</th>
                     <th>Logo</th>
-               
+                    <th>Title</th>
+                    <th>Sub Title</th>
+                    <th>Youtube Link</th>
                     <th>Action</th>
                   
                   </tr>

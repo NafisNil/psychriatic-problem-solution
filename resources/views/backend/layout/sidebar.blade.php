@@ -76,7 +76,46 @@
             </a>
           </li>
 
-          
+          <li class="nav-item">
+            <a href="{{route('blog.index')}}" class="nav-link {{$route == 'blog.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Blog
+               
+              </p>
+            </a>
+          </li>
+
+
+          <li class="nav-item">
+            <a href="{{route('slider.index')}}" class="nav-link {{$route == 'slider.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Slider
+               
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('about.index')}}" class="nav-link {{$route == 'about.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                About Us
+               
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('featuregame.index')}}" class="nav-link {{$route == 'featuregame.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Featured Game
+               
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>

@@ -1,6 +1,6 @@
 @extends('backend.layout.master')
 @section('title')
-    Dashboard - Cleantown
+    Dashboard - Connect With Dr.Atiq
 @endsection
 
 @section('content')

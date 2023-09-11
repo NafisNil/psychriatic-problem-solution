@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
+use App\Models\Featuregame;
 use Illuminate\Http\Request;
 use Image;
-use App\Http\Requests\BlogRequest;
-class BlogController extends Controller
+use App\Http\Requests\FeaturegameRequest;
+class FeaturegameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class BlogController extends Controller
     public function index()
     {
         //
-        $blog = Blog::orderBy('id', 'desc')->get();
-        $blogCount = Blog::count();
-         return view('backend.blog.index',['blog'=>$blog,'blogCount'=> $blogCount,]);
+        $featuregame = Featuregame::orderBy('id', 'desc')->get();
+        $featuregameCount = Featuregame::count();
+         return view('backend.featuregame.index',['featuregame'=>$featuregame,'featuregameCount'=> $featuregameCount,]);
     }
 
     /**
@@ -29,7 +29,7 @@ class BlogController extends Controller
     public function create()
     {
         //
-        return view('backend.blog.create');
+        return view('backend.featuregame.create');
     }
 
     /**
@@ -38,24 +38,24 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BlogRequest $request)
+    public function store(FeaturegameRequest $request)
     {
         //
-        $blog = Blog::create($request->all());
+        $featuregame = Featuregame::create($request->all());
        
         if ($request->hasFile('logo')) {
-            $this->_uploadImage($request, $blog);
+            $this->_uploadImage($request, $featuregame);
         }
-        return redirect()->route('blog.index')->with('success','Data inserted successfully');
+        return redirect()->route('featuregame.index')->with('success','Data inserted successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Featuregame  $featuregame
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Featuregame $featuregame)
     {
         //
     }
@@ -63,14 +63,14 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Featuregame  $featuregame
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit(Featuregame $featuregame)
     {
         //
-        return view('backend.blog.edit',[
-            'edit' => $blog
+        return view('backend.featuregame.edit',[
+            'edit' => $featuregame
         ]);
     }
 
@@ -78,35 +78,35 @@ class BlogController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Featuregame  $featuregame
      * @return \Illuminate\Http\Response
      */
-    public function update(BlogRequest $request, Blog $blog)
+    public function update(FeaturegameRequest $request, Featuregame $featuregame)
     {
         //
-        $blog->update($request->all());
+        $featuregame->update($request->all());
        
         if ($request->hasFile('logo')) {
-            @unlink('storage/'.$blog->logo);
-            $this->_uploadImage($request, $blog);
+            @unlink('storage/'.$featuregame->logo);
+            $this->_uploadImage($request, $featuregame);
         }
-        return redirect()->route('blog.index')->with('success','Data inserted successfully');
+        return redirect()->route('featuregame.index')->with('success','Data inserted successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Featuregame  $featuregame
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(Featuregame $featuregame)
     {
         //
-        if(!empty($blog->logo));
-        @unlink('storage/'.$blog->logo);
+        if(!empty($featuregame->logo));
+        @unlink('storage/'.$featuregame->logo);
        
-        $blog->delete();
-        return redirect()->route('blog.index')->with('status','Data deleted successfully!');
+        $featuregame->delete();
+        return redirect()->route('featuregame.index')->with('status','Data deleted successfully!');
     }
 
 

@@ -3,6 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\FeaturegameController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +33,10 @@ Route::middleware('auth')->group(function () {
 
     Route::resources([
         'logo' => LogoController::class,
+        'blog' => BlogController::class,
+        'slider' => SliderController::class,
+        'about' => AboutController::class,
+        'featuregame' => FeaturegameController::class
     ]);
 });
 

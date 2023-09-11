@@ -1,4 +1,7 @@
 @extends('backend.layout.master')
+@section('title')
+    Logo - Create
+@endsection
 @section('content')
 
   <section class="content-header">
