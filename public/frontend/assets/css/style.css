@@ -38,6 +38,7 @@ body {
   visibility: visible;
   font-family: "Exo", sans-serif;
   color: #fff;
+  background-image: url("bg.jpg");
   letter-spacing: 0.02em;
 }
 

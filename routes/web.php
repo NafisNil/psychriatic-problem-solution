@@ -45,6 +45,13 @@ Route::middleware('auth')->group(function () {
     ]);
 });
 
-Route::get('/', [FrontendController::class, 'index'])->name('index');
-Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
+
 require __DIR__.'/auth.php';
+
+
+Route::get('/', [FrontendController::class, 'index'])->name('index');
+Route::get('/about-us', [FrontendController::class, 'about'])->name('about_us');
+Route::get('/contact-us', [FrontendController::class, 'contact'])->name('contact_us');
+Route::get('/about-atiq', [FrontendController::class, 'atiq'])->name('about_atiq');
+Route::get('/blog-all', [FrontendController::class, 'blog'])->name('all_blog');
+Route::get('/blog-single/{id}', [FrontendController::class, 'single_blog'])->name('single_blog');

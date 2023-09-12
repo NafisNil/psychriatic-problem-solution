@@ -132,15 +132,15 @@
                     <div class="single_blog d-flex align-items-center wow fadeInUp" data-wow-delay="0.1s"
                         data-wow-duration="1.1s">
                         <div class="blog_thumb">
-                            <a href="blog-details.html"><img width="200" height="200"
+                            <a href="{{route('single_blog', $item->id)}}"><img width="200" height="200"
                                     src="{{(!empty($item->logo))?URL::to('storage/'.$item->logo):URL::to('image/no_image.png')}}" alt=""></a>
                         </div>
                         <div class="blog_content">
                             <div class="blog_date">
                                 <span><i class="icofont-calendar"></i> {{$item->created_at->format('d M, Y')}}</span>
                             </div>
-                            <h3><a href="#">{{$item->title}}</a></h3>
-                            <a href="#">READ MORE</a>
+                            <h3><a href="{{route('single_blog', $item->id)}}">{{$item->title}}</a></h3>
+                            <a href="{{route('single_blog', $item->id)}}">READ MORE</a>
                         </div>
                     </div>
                 </div>
@@ -158,14 +158,14 @@
             <div class="row">
                 <div class="col-12">
                     <div class="gaming_update_inner d-flex justify-content-between align-items-center"
-                        data-bgimg="assets/img/bg/gaming-update.webp">
+                        data-bgimg="{{asset('frontend')}}/assets/img/bg/bg.jpg">
                         <div class="gaming_update_text">
                             <h2>Connect with us <br>
                                 for gamING update.</h2>
                         </div>
                         <div class="gaming_update_btn">
-                            <a class="btn btn-link" href="contact.html">CONNECT NOW <img width="20" height="20"
-                                    src="assets/img/icon/arrrow-icon.webp" alt=""> </a>
+                            <a class="btn btn-link" href="#">CONNECT NOW <img width="20" height="20"
+                                    src="{{asset('frontend')}}assets/img/icon/arrrow-icon.webp" alt=""> </a>
                         </div>
                     </div>
                 </div>

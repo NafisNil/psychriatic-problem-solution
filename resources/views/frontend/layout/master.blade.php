@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="{{asset('frontend')}}/assets/css/style.css">
 </head>
 
-<body class="body__bg" data-bgimg="{{asset('frontend')}}/assets/img/bg/body-bg.webp">
+<body class="body__bg" data-bgimg="{{asset('frontend')}}/assets/css/bg.jpg">
 
     <!--header area start-->
 @include('frontend.layout.header')

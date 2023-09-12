@@ -7,7 +7,7 @@
                         <div class="footer_widget_list">
                             <div class="footer_logo">
                                 <a href="#"><img aria-label="logo" max-width="256px" max-height="256px"
-                                        src="{{(!empty($logo->logo))?URL::to('storage/'.$logo->logo):URL::to('image/no_image.png')}}" alt=""></a>
+                                        src="{{asset('frontend')}}/assets/img/logo/logo2.png" alt=""></a>
                             </div>
                             <div class="footer_contact_desc">
                                 <p>{{$slider->subtitle}}</p>
