@@ -26,7 +26,7 @@ class FeaturegameRequest extends FormRequest
         return [
             //
             'title' => 'required',
-            'logo' => 'mimes:jpg,jpeg,svg,webp,gif'
+            'logo' => 'mimes:jpg,jpeg,svg,webp,gif,png,PNG'
         ];
     }
 }

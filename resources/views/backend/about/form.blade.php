@@ -37,7 +37,7 @@
                   <div class="form-group">
                     <label for="exampleInputEmail1">Youtube Link <span style="color:red" >*</span></label>
                    
-                    <input type="text" class="form-control" name="link" value="{!!old('link',@$edit->link)!!}">
+                    <input type="text" class="form-control" name="link" value="{!!old('link','https://www.youtube.com/watch?v='.@$edit->link)!!}">
                    
                   </div>
                 </div>

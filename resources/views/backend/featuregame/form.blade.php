@@ -27,14 +27,14 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Sub title <span style="color:red" >*</span></label>
+                    <label for="exampleInputEmail1">Sub title </label>
                    
                     <input type="text" class="form-control" name="subtitle" value="{!!old('subtitle',@$edit->subtitle)!!}">
                    
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Youtube Link <span style="color:red" >*</span></label>
+                    <label for="exampleInputEmail1"> Link </label>
                    
                     <input type="url" class="form-control" name="link" value="{!!old('link',@$edit->link)!!}">
                    

@@ -7,6 +7,9 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FeaturegameController;
+use App\Http\Controllers\AtiqController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -36,8 +39,12 @@ Route::middleware('auth')->group(function () {
         'blog' => BlogController::class,
         'slider' => SliderController::class,
         'about' => AboutController::class,
-        'featuregame' => FeaturegameController::class
+        'featuregame' => FeaturegameController::class,
+        'atiq' => AtiqController::class,
+        'contact' => ContactController::class
     ]);
 });
 
+Route::get('/', [FrontendController::class, 'index'])->name('index');
+Route::get('/about-us', [FrontendController::class, 'about'])->name('about');
 require __DIR__.'/auth.php';
